@@ -21,6 +21,11 @@ io.on('connection', (socket) => {
     console.log('message==', message); // Broadcast the message to all connected clients
   });
 
+  socket.on('typing', (message) => {
+    io.emit('typing', message);
+    console.log('typing==', message); // Broadcast the message to all connected clients
+  });
+
   socket.on('disconnect', () => {
     // io.emit('disconnect', '');
     console.log('User disconnected');
