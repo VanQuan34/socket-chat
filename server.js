@@ -26,8 +26,8 @@ io.on('connection', (socket) => {
     console.log('typing==', message); // Broadcast the message to all connected clients
   });
 
-  socket.on('disconnect', () => {
-    // io.emit('disconnect', '');
+  socket.on('disconnect', (event) => {
+    io.emit('disconnect', event);
     console.log('User disconnected');
   });
 });
